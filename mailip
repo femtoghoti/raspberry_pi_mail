@@ -1,0 +1,5 @@
+#!/bin/sh
+
+SUBJ="Rasp IP"
+EMAIL="your.email@somewhere.com"
+ifconfig eth0 | awk '/inet addr/ {gsub("addr:", "", $2); print $2}' | mail -s $SUBJ $EMAIL
